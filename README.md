@@ -1,10 +1,10 @@
 # Mac OS X Gamepad Driver for Flysky compatible transmitters
 
+This project emulates a virtual Gamepad using input data from a serial port. This can be used to enable Flysky CT6A / CT6B compatible transmitters (Turbobrix, Exceed, Modelcraft) in games or simulators.
 
+**You need to install the virtual userspace IOKit HID driver *foohid*:**
 
-## Protocol Test Utility
-
-In the `protocol` subdirectory you can find a simple command-line app to test the proper decoding of the transmitters serial protocol.
+[GitHub page](https://github.com/unbit/foohid), [Binary releases](https://github.com/unbit/foohid/releases).
 
 ## Other Resources
 

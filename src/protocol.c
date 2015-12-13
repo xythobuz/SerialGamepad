@@ -41,13 +41,13 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    if (signal(SIGINT, signalHandler) == SIG_ERR) {
-        perror("Couldn't register signal handler");
+    int fd = serialOpen(argv[1], BAUDRATE);
+    if (fd == -1) {
         return 1;
     }
 
-    int fd = serialOpen(argv[1], BAUDRATE);
-    if (fd == -1) {
+    if (signal(SIGINT, signalHandler) == SIG_ERR) {
+        perror("Couldn't register signal handler");
         return 1;
     }
 
