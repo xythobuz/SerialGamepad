@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <string.h>
+#include <unistd.h>
 
 #include <IOKit/IOKitLib.h>
 
@@ -248,6 +249,8 @@ int main(int argc, char* argv[]) {
                 }
             }
         }
+
+        usleep(1000);
     }
 
     printf("Closing serial port...\n");

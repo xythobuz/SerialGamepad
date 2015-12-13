@@ -141,6 +141,8 @@ unsigned int serialWriteRaw(int fd, const char *d, int len) {
         } else {
             processed += t;
         }
+
+        usleep(1000);
     }
 
     return processed;
@@ -158,6 +160,8 @@ unsigned int serialReadRaw(int fd, char *d, int len) {
         } else {
             processed += t;
         }
+
+        usleep(1000);
     }
 
     return processed;

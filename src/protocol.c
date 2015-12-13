@@ -10,6 +10,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <signal.h>
+#include <unistd.h>
 
 #include "serial.h"
 
@@ -133,6 +134,8 @@ int main(int argc, char* argv[]) {
                 }
             }
         }
+
+        usleep(1000);
     }
 
     serialClose(fd);
