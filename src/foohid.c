@@ -77,6 +77,8 @@ static char report_descriptor[36] = {
 };
 
 static int foohidInit() {
+    printf("Searching for foohid Kernel extension...\n");
+
     // get a reference to the IOService
     kern_return_t ret = IOServiceGetMatchingServices(kIOMasterPortDefault,
                             IOServiceMatching("it_unbit_foohid"), &iterator);
@@ -99,6 +101,8 @@ static int foohidInit() {
         return 1;
     }
 
+    printf("Creating virtual HID device...\n");
+
     input[0] = (uint64_t)strdup(VIRTUAL_DEVICE_NAME);
     input[1] = strlen((char*)input[0]);
 
@@ -117,6 +121,8 @@ static int foohidInit() {
 }
 
 static void foohidClose() {
+    printf("Destroying virtual HID device\n");
+
     uint32_t output_count = 1;
     uint64_t output = 0;
     kern_return_t ret = IOConnectCallScalarMethod(connect, FOOHID_DESTROY, input, 2, &output, &output_count);
@@ -126,9 +132,6 @@ static void foohidClose() {
 }
 
 static void foohidSend(uint16_t *data) {
-    input[2] = (uint64_t)&gamepad;
-    input[3] = sizeof(struct gamepad_report_t);
-
     for (int i = 0; i < CHANNELS; i++) {
         if (data[i] > CHANNELMAXIMUM) {
             data[i] = CHANNELMAXIMUM;
@@ -142,6 +145,19 @@ static void foohidSend(uint16_t *data) {
     gamepad.aux1 = data[4] - 511;
     gamepad.aux2 = data[5] - 511;
 
+    /*
+    printf("Sending data packet:\n");
+    printf("Left X: %d\n", gamepad.leftX);
+    printf("Left Y: %d\n", gamepad.leftY);
+    printf("Right X: %d\n", gamepad.rightX);
+    printf("Right Y: %d\n", gamepad.rightY);
+    printf("Aux 1: %d\n", gamepad.aux1);
+    printf("Aux 2: %d\n", gamepad.aux2);
+    */
+
+    input[2] = (uint64_t)&gamepad;
+    input[3] = sizeof(struct gamepad_report_t);
+
     uint32_t output_count = 1;
     uint64_t output = 0;
     kern_return_t ret = IOConnectCallScalarMethod(connect, FOOHID_SEND, input, 4, &output, &output_count);
@@ -152,6 +168,7 @@ static void foohidSend(uint16_t *data) {
 
 static void signalHandler(int signo) {
     running = 0;
+    printf("\n");
 }
 
 int main(int argc, char* argv[]) {
@@ -159,6 +176,8 @@ int main(int argc, char* argv[]) {
         printf("Usage:\n\t%s /dev/serial_port\n", argv[0]);
         return 1;
     }
+
+    printf("Opening serial port...\n");
 
     int fd = serialOpen(argv[1], BAUDRATE);
     if (fd == -1) {
@@ -221,6 +240,7 @@ int main(int argc, char* argv[]) {
                         for (int i = 0; i < (CHANNELS + 1); i++) {
                             buff[i] = data[2 * i] << 8;
                             buff[i] |= data[(2 * i) + 1];
+                            buff[i] -= 1000;
                         }
 
                         foohidSend(buff);
@@ -230,6 +250,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    printf("Closing serial port...\n");
     serialClose(fd);
     foohidClose();
 
