@@ -83,6 +83,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9F5FFBE1C1F5E2B00AA4E3B /* Build configuration list for PBXNativeTarget "SerialGamepad" */;
 			buildPhases = (
+				E9B6A1D31C1F653500DA3C80 /* Increment build number */,
 				E9F5FFA91C1F5E2B00AA4E3B /* Sources */,
 				E9F5FFAA1C1F5E2B00AA4E3B /* Frameworks */,
 				E9F5FFAB1C1F5E2B00AA4E3B /* Resources */,
@@ -139,6 +140,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E9B6A1D31C1F653500DA3C80 /* Increment build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Increment build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nplist=\"${PROJECT_DIR}/${INFOPLIST_FILE}\"\ndir=\"$(dirname \"$plist\")\"\n\n# Only increment the build number if source files have changed\nif [ -n \"$(find \"$dir\" \\! -path \"*xcuserdata*\" \\! -path \"*.git*\" \\! -name .DS_Store \\! -path \"*Website*\" -newer \"$plist\")\" ]; then\nbuildnum=$(/usr/libexec/Plistbuddy -c \"Print CFBundleVersion\" \"$plist\")\nif [ -z \"$buildnum\" ]; then\necho \"No build number in $plist\"\nexit 2\nfi\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"$plist\"\necho \"Incremented build number to $buildnum\"\nelse\necho \"Not incrementing build number as source files have not changed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E9F5FFA91C1F5E2B00AA4E3B /* Sources */ = {
@@ -201,7 +219,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -238,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
