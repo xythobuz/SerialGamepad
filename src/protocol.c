@@ -22,15 +22,9 @@
 #define CHECKSUMBYTES 2
 #define PAYLOADBYTES (PACKETSIZE - HEADERBYTES - CHECKSUMBYTES)
 #define CHANNELS 6
-
-/*
 #define TESTCHANNEL 2
-#define TESTCHANNELVALUE 2044
-*/
 
 static int running = 1;
-static int firstPrint = 0;
-static int extraLine = 0;
 
 static void signalHandler(int signo) {
     running = 0;
@@ -41,6 +35,8 @@ int main(int argc, char* argv[]) {
         printf("Usage:\n\t%s /dev/serial_port\n", argv[0]);
         return 1;
     }
+
+    printf("Opening serial port...\n");
 
     int fd = serialOpen(argv[1], BAUDRATE);
     if (fd == -1) {
@@ -90,45 +86,32 @@ int main(int argc, char* argv[]) {
                     }
 
                     if (checksum != ((checksumData[0] << 8) | checksumData[1])) {
-                        printf("Wrong checksum: %d != %d                    \n",
+                        printf("Wrong checksum: %d != %d\n",
                                checksum, ((checksumData[0] << 8) | checksumData[1]));
-                        extraLine++;
-                        if (extraLine > 1) {
-                            extraLine--;
-                            printf("\r\033[1A");
-                        }
                     } else {
                         // Decode channel values
                         uint16_t buff[CHANNELS + 1];
                         for (int i = 0; i < (CHANNELS + 1); i++) {
                             buff[i] = data[2 * i] << 8;
                             buff[i] |= data[(2 * i) + 1];
-                        }
 
-                        /*
-                        // Check Test Channel Value (?)
-                        if (buff[CHANNELS] != (TESTCHANNELVALUE - buff[TESTCHANNEL])) {
-                            printf("Wrong test channel value: %d != %d (%d - %d)\n",
-                                   buff[CHANNELS], TESTCHANNELVALUE - buff[TESTCHANNEL],
-                                   TESTCHANNELVALUE, buff[TESTCHANNEL]);
-
-                            printf("Correct would be: %d\n",
-                                   buff[TESTCHANNEL] + buff[CHANNELS]);
-                        }
-                        */
-
-                        if (firstPrint == 0) {
-                            firstPrint = 1;
-                        } else {
-                            int num = CHANNELS + extraLine;
-                            extraLine = 0;
-                            for (int i = 0; i < num; i++) {
-                                printf("\r\033[1A");
+                            if (i < CHANNELS) {
+                                buff[i] -= 1000;
                             }
                         }
 
+                        // Check Test Channel Value
+                        if (buff[CHANNELS] != buff[TESTCHANNEL]) {
+                            printf("Wrong test channel value: %d != %d\n",
+                                   buff[CHANNELS], buff[TESTCHANNEL]);
+                        }
+
                         for (int i = 0; i < CHANNELS; i++) {
-                            printf("CH%d: %d                    \n", i + 1, buff[i] - 1000);
+                            printf("CH%d: %d\n", i + 1, buff[i]);
+                        }
+
+                        for (int i = 0; i < CHANNELS; i++) {
+                            printf("\r\033[1A");
                         }
                     }
                 }
@@ -138,6 +121,7 @@ int main(int argc, char* argv[]) {
         usleep(1000);
     }
 
+    printf("Closing serial port...                    \n");
     serialClose(fd);
 
     return 0;

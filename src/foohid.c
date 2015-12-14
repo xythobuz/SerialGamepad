@@ -25,6 +25,7 @@
 #define CHECKSUMBYTES 2
 #define PAYLOADBYTES (PACKETSIZE - HEADERBYTES - CHECKSUMBYTES)
 #define CHANNELS 6
+#define TESTCHANNEL 2
 #define CHANNELMAXIMUM 1022
 
 #define FOOHID_NAME "it_unbit_foohid"
@@ -139,10 +140,10 @@ static void foohidSend(uint16_t *data) {
         }
     }
 
-    gamepad.leftX = data[0] - 511;
-    gamepad.leftY = data[1] - 511;
-    gamepad.rightX = data[2] - 511;
-    gamepad.rightY = data[3] - 511;
+    gamepad.leftX = data[3] - 511;
+    gamepad.leftY = data[2] - 511;
+    gamepad.rightX = data[0] - 511;
+    gamepad.rightY = data[1] - 511;
     gamepad.aux1 = data[4] - 511;
     gamepad.aux2 = data[5] - 511;
 
@@ -241,7 +242,16 @@ int main(int argc, char* argv[]) {
                         for (int i = 0; i < (CHANNELS + 1); i++) {
                             buff[i] = data[2 * i] << 8;
                             buff[i] |= data[(2 * i) + 1];
-                            buff[i] -= 1000;
+
+                            if (i < CHANNELS) {
+                                buff[i] -= 1000;
+                            }
+                        }
+
+                        // Check Test Channel Value
+                        if (buff[CHANNELS] != buff[TESTCHANNEL]) {
+                            printf("Wrong test channel value: %d != %d\n",
+                                   buff[CHANNELS], buff[TESTCHANNEL]);
                         }
 
                         foohidSend(buff);

@@ -7,12 +7,11 @@
 
 CFLAGS ?= -Wall -pedantic -std=c11
 
-ifneq ("$(wildcard /Library/Extensions/foohid.kext/Contents/Info.plist)","")
 all: bin/protocol bin/foohid
-else
-all: bin/protocol
-	@echo "Could not find foohid.kext installed in /Library/Extensions!"
-endif
+
+install: all
+	cp bin/protocol ~/bin/protocol
+	cp bin/foohid ~/bin/foohid
 
 bin/protocol: src/serial.o src/protocol.o
 	@mkdir -p bin
