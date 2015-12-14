@@ -7,11 +7,15 @@
 
 CFLAGS ?= -Wall -pedantic -std=c11
 
-all: bin/protocol bin/foohid
+all: bin/protocol bin/foohid SerialGamepad.app
 
 install: all
 	cp bin/protocol ~/bin/protocol
 	cp bin/foohid ~/bin/foohid
+	cp -r build/Release/SerialGamepad.app /Applications/SerialGamepad.app
+
+SerialGamepad.app:
+	xcodebuild
 
 bin/protocol: src/serial.o src/protocol.o
 	@mkdir -p bin
