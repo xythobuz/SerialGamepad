@@ -10,7 +10,7 @@
 
 @interface MainWindow : NSWindow
 
-@property (weak) IBOutlet NSPopUpButtonCell *portList;
+@property (weak) IBOutlet NSPopUpButton *portList;
 @property (weak) IBOutlet NSButton *connectButton;
 @property (weak) IBOutlet NSButton *createButton;
 @property (weak) IBOutlet NSLevelIndicator *level1;
@@ -19,5 +19,7 @@
 @property (weak) IBOutlet NSLevelIndicator *level4;
 @property (weak) IBOutlet NSLevelIndicator *level5;
 @property (weak) IBOutlet NSLevelIndicator *level6;
+
+- (void)populatePortList;
 
 @end

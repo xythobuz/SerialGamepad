@@ -696,14 +696,6 @@
                             <action selector="createButtonPressed:" target="QvC-M9-y7g" id="Iff-L2-DFe"/>
                         </connections>
                     </button>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5dN-Rl-Vkt">
-                        <rect key="frame" x="18" y="214" width="295" height="26"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="ofz-Zj-Lba">
-                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="menu"/>
-                            <menu key="menu" id="hsu-7G-Ltg"/>
-                        </popUpButtonCell>
-                    </popUpButton>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-fb-a0u">
                         <rect key="frame" x="20" y="140" width="290" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="xcx-tB-hUl"/>
@@ -728,6 +720,20 @@
                         <rect key="frame" x="20" y="20" width="290" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="nfv-aV-cRB"/>
                     </levelIndicator>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-p0-WO6">
+                        <rect key="frame" x="18" y="214" width="295" height="26"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="p4h-ja-UZg">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="njN-zA-NVu">
+                                <items>
+                                    <menuItem title="Item 1" id="W0M-vU-Ybd"/>
+                                    <menuItem title="Item 2" id="SHC-AR-wFp"/>
+                                    <menuItem title="Item 3" id="PqD-oG-Ww4"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
             </view>
             <connections>
@@ -739,7 +745,7 @@
                 <outlet property="level4" destination="txY-x4-Zyp" id="XfN-HH-2lT"/>
                 <outlet property="level5" destination="VyV-eY-7y9" id="Ea2-ot-aqN"/>
                 <outlet property="level6" destination="vCW-tD-iWD" id="Il2-Xb-sB9"/>
-                <outlet property="portList" destination="ofz-Zj-Lba" id="lNL-1h-cEf"/>
+                <outlet property="portList" destination="mvV-p0-WO6" id="TqL-rb-GiB"/>
             </connections>
             <point key="canvasLocation" x="598" y="439"/>
         </window>

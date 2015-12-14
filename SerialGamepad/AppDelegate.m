@@ -7,20 +7,24 @@
 //
 
 #import "AppDelegate.h"
+#import "MainWindow.h"
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet MainWindow *window;
+
 @end
 
 @implementation AppDelegate
+
+@synthesize window;
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)application {
     return YES;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    [window populatePortList];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

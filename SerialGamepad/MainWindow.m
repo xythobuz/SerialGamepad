@@ -8,12 +8,23 @@
 
 #import "MainWindow.h"
 
+#import "Serial.h"
+
 @implementation MainWindow
+
+@synthesize portList, connectButton, createButton, level1, level2, level3, level4, level5, level6;
 
 - (IBAction)connectButtonPressed:(id)sender {
 }
 
 - (IBAction)createButtonPressed:(id)sender {
+}
+
+- (void)populatePortList {
+    NSArray *ports = [Serial listSerialPorts];
+    
+    [portList removeAllItems];
+    [portList addItemsWithTitles:ports];
 }
 
 @end
