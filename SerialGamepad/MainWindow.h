@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "Thread.h"
+
 @interface MainWindow : NSWindow
 
 @property (weak) IBOutlet NSPopUpButton *portList;
@@ -19,6 +21,8 @@
 @property (weak) IBOutlet NSLevelIndicator *level4;
 @property (weak) IBOutlet NSLevelIndicator *level5;
 @property (weak) IBOutlet NSLevelIndicator *level6;
+
+@property (strong) Thread *serialThread;
 
 - (void)populatePortList;
 

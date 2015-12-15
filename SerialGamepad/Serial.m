@@ -13,6 +13,9 @@
 
 #import "Serial.h"
 
+kern_return_t findSerialPorts(io_iterator_t *matches);
+kern_return_t getSerialPortPath(io_iterator_t serialPortIterator, char **deviceFilePath, CFIndex maxPathCount, CFIndex maxPathSize);
+
 @implementation Serial
 
 + (NSArray *)listSerialPorts {
@@ -118,7 +121,7 @@ kern_return_t getSerialPortPath(io_iterator_t serialPortIterator, char **deviceF
             CFRelease(deviceFilePathAsCFString);
             
             if (result) {
-                NSLog(@"BSD path: %s\n", deviceFilePath[i]);
+                //NSLog(@"BSD path: %s\n", deviceFilePath[i]);
                 i++;
                 kernResult = KERN_SUCCESS;
             }

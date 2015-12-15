@@ -1,5 +1,5 @@
 //
-//  Serial.h
+//  fooHID.h
 //  SerialGamepad
 //
 //  Created by Thomas Buck on 14.12.15.
@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Serial : NSObject
+@interface fooHID : NSObject
 
-+ (NSArray *)listSerialPorts;
++ (NSInteger)init;
++ (void)close;
++ (void)send:(NSArray *)data;
 
 @end

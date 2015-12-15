@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E9B6A1D21C1F623B00DA3C80 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B6A1D11C1F623B00DA3C80 /* MainWindow.m */; };
 		E9B6A1D61C1F683300DA3C80 /* Serial.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B6A1D51C1F683300DA3C80 /* Serial.m */; };
+		E9B6A1D91C1F7E0200DA3C80 /* fooHID.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B6A1D81C1F7E0200DA3C80 /* fooHID.m */; };
+		E9B6A1DC1C20C0F200DA3C80 /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B6A1DB1C20C0F200DA3C80 /* Thread.m */; };
 		E9F5FFB21C1F5E2B00AA4E3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F5FFB11C1F5E2B00AA4E3B /* AppDelegate.m */; };
 		E9F5FFB51C1F5E2B00AA4E3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9F5FFB41C1F5E2B00AA4E3B /* main.m */; };
 		E9F5FFB71C1F5E2B00AA4E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9F5FFB61C1F5E2B00AA4E3B /* Assets.xcassets */; };
@@ -20,6 +22,10 @@
 		E9B6A1D11C1F623B00DA3C80 /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
 		E9B6A1D41C1F683300DA3C80 /* Serial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Serial.h; sourceTree = "<group>"; };
 		E9B6A1D51C1F683300DA3C80 /* Serial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Serial.m; sourceTree = "<group>"; };
+		E9B6A1D71C1F7E0200DA3C80 /* fooHID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fooHID.h; sourceTree = "<group>"; };
+		E9B6A1D81C1F7E0200DA3C80 /* fooHID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fooHID.m; sourceTree = "<group>"; };
+		E9B6A1DA1C20C0F200DA3C80 /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		E9B6A1DB1C20C0F200DA3C80 /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
 		E9F5FFAD1C1F5E2B00AA4E3B /* SerialGamepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SerialGamepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9F5FFB01C1F5E2B00AA4E3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E9F5FFB11C1F5E2B00AA4E3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +73,10 @@
 				E9B6A1D11C1F623B00DA3C80 /* MainWindow.m */,
 				E9B6A1D41C1F683300DA3C80 /* Serial.h */,
 				E9B6A1D51C1F683300DA3C80 /* Serial.m */,
+				E9B6A1D71C1F7E0200DA3C80 /* fooHID.h */,
+				E9B6A1D81C1F7E0200DA3C80 /* fooHID.m */,
+				E9B6A1DA1C20C0F200DA3C80 /* Thread.h */,
+				E9B6A1DB1C20C0F200DA3C80 /* Thread.m */,
 				E9F5FFBB1C1F5E2B00AA4E3B /* Info.plist */,
 				E9F5FFB31C1F5E2B00AA4E3B /* Supporting Files */,
 			);
@@ -170,8 +180,10 @@
 			files = (
 				E9F5FFB51C1F5E2B00AA4E3B /* main.m in Sources */,
 				E9F5FFB21C1F5E2B00AA4E3B /* AppDelegate.m in Sources */,
+				E9B6A1D91C1F7E0200DA3C80 /* fooHID.m in Sources */,
 				E9B6A1D21C1F623B00DA3C80 /* MainWindow.m in Sources */,
 				E9B6A1D61C1F683300DA3C80 /* Serial.m in Sources */,
+				E9B6A1DC1C20C0F200DA3C80 /* Thread.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

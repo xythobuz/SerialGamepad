@@ -678,7 +678,7 @@
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-m1-NwV">
                         <rect key="frame" x="14" y="169" width="152" height="32"/>
-                        <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="adp-gD-EEf">
+                        <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="adp-gD-EEf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -688,7 +688,7 @@
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v8W-R7-l4G">
                         <rect key="frame" x="164" y="169" width="152" height="32"/>
-                        <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EEe-0L-Dx7">
+                        <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EEe-0L-Dx7">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -722,14 +722,12 @@
                     </levelIndicator>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-p0-WO6">
                         <rect key="frame" x="18" y="214" width="295" height="26"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="p4h-ja-UZg">
+                        <popUpButtonCell key="cell" type="push" title="Serial Port" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="W0M-vU-Ybd" id="p4h-ja-UZg">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="njN-zA-NVu">
                                 <items>
-                                    <menuItem title="Item 1" id="W0M-vU-Ybd"/>
-                                    <menuItem title="Item 2" id="SHC-AR-wFp"/>
-                                    <menuItem title="Item 3" id="PqD-oG-Ww4"/>
+                                    <menuItem title="Serial Port" state="on" id="W0M-vU-Ybd"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
