@@ -6,6 +6,20 @@ This project emulates a virtual Gamepad using input data from a serial port. Thi
 
 [GitHub page](https://github.com/unbit/foohid), [Binary releases](https://github.com/unbit/foohid/releases).
 
+## SerialGamepad GUI App
+
+This app can connect to a compatible transmitter over a serial port and then provide a virtual gamepad using fooHID.
+
+![Screenshot](https://i.imgur.com/x0hnWq5.png)
+
+## foohid command-line app
+
+This small utility does the same thing as the SerialGamepad.app without a graphical user interface.
+
+## protocol command-line app
+
+This small utility only reads the channel values from a serial port and pretty-prints them to a POSIX compatible terminal.
+
 ## Other Resources
 
  * [Serial protocol analysis](http://www.rcgroups.com/forums/showpost.php?p=11384029&postcount=79)
