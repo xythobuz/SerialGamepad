@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "Thread.h"
+@class Thread;
 
-@interface MainWindow : NSWindow
+@interface MainWindow : NSWindow <NSWindowDelegate>
 
 @property (weak) IBOutlet NSPopUpButton *portList;
 @property (weak) IBOutlet NSButton *connectButton;
@@ -24,6 +24,9 @@
 
 @property (strong) Thread *serialThread;
 
+@property (assign) BOOL gamepadCreated;
+
 - (void)populatePortList;
+- (void)setChannels:(id)data;
 
 @end

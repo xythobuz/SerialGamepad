@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+@class MainWindow;
+
 @interface Thread : NSThread
 
 @property BOOL running;
 @property int fd;
 @property (strong) NSString *portName;
+@property (weak) MainWindow *mainWindow;
 
+- (id)initWithWindow:(MainWindow *)window;
 - (NSInteger)openPort;
 
 @end

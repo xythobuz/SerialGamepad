@@ -59,7 +59,7 @@ struct gamepad_report_t {
 };
 
 static io_connect_t connector;
-static uint64_t input[4];
+static uint64_t deviceName = 0, deviceNameLength;
 static struct gamepad_report_t gamepad;
 
 /*
@@ -118,9 +118,14 @@ int foohidInit() {
     
     NSLog(@"Creating virtual HID device...\n");
     
-    input[0] = (uint64_t)strdup(VIRTUAL_DEVICE_NAME);
-    input[1] = strlen((char*)input[0]);
+    if (deviceName == 0) {
+        deviceName = (uint64_t)strdup(VIRTUAL_DEVICE_NAME);
+        deviceNameLength = strlen((char *)deviceName);
+    }
     
+    uint64_t input[4];
+    input[0] = deviceName;
+    input[1] = deviceNameLength;
     input[2] = (uint64_t)report_descriptor;
     input[3] = sizeof(report_descriptor);
     
@@ -137,6 +142,10 @@ int foohidInit() {
 
 void foohidClose() {
     NSLog(@"Destroying virtual HID device\n");
+    
+    uint64_t input[2];
+    input[0] = deviceName;
+    input[1] = deviceNameLength;
     
     uint32_t output_count = 1;
     uint64_t output = 0;
@@ -170,6 +179,9 @@ void foohidSend(uint16_t *data) {
      NSLog(@"Aux 2: %d\n", gamepad.aux2);
      */
     
+    uint64_t input[4];
+    input[0] = deviceName;
+    input[1] = deviceNameLength;
     input[2] = (uint64_t)&gamepad;
     input[3] = sizeof(struct gamepad_report_t);
     

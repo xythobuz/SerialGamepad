@@ -698,27 +698,27 @@
                     </button>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-fb-a0u">
                         <rect key="frame" x="20" y="140" width="290" height="16"/>
-                        <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="xcx-tB-hUl"/>
+                        <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="xcx-tB-hUl"/>
                     </levelIndicator>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-lV-IAQ">
                         <rect key="frame" x="20" y="116" width="290" height="16"/>
-                        <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="sb6-cl-NKs"/>
+                        <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="sb6-cl-NKs"/>
                     </levelIndicator>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="URz-Id-X9n">
                         <rect key="frame" x="20" y="92" width="290" height="16"/>
-                        <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="Sov-4g-u59"/>
+                        <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="Sov-4g-u59"/>
                     </levelIndicator>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txY-x4-Zyp">
                         <rect key="frame" x="20" y="68" width="290" height="16"/>
-                        <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="RKp-wa-VLB"/>
+                        <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="RKp-wa-VLB"/>
                     </levelIndicator>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-eY-7y9">
                         <rect key="frame" x="20" y="44" width="290" height="16"/>
-                        <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="CyL-Tq-w7d"/>
+                        <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="CyL-Tq-w7d"/>
                     </levelIndicator>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-tD-iWD">
                         <rect key="frame" x="20" y="20" width="290" height="16"/>
-                        <levelIndicatorCell key="cell" alignment="left" doubleValue="-511" minValue="-511" maxValue="511" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="nfv-aV-cRB"/>
+                        <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="nfv-aV-cRB"/>
                     </levelIndicator>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-p0-WO6">
                         <rect key="frame" x="18" y="214" width="295" height="26"/>
