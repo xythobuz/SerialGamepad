@@ -13,12 +13,14 @@ CFLAGS ?= -Wall -pedantic -std=c11
 
 # Build all binaries
 all: bin/protocol bin/foohid build/Release/SerialGamepad.app
-	cp -R build/Release/SerialGamepad.app bin/SerialGamepad.app
+	@rm -rf bin/SerialGamepad.app
+	@cp -R build/Release/SerialGamepad.app bin/SerialGamepad.app
 
 # Install locally
 install: bin/protocol bin/foohid build/Release/SerialGamepad.app
 	cp bin/protocol /usr/local/bin/serial-protocol
 	cp bin/foohid /usr/local/bin/foohid
+	@rm -rf /Applications/SerialGamepad.app
 	cp -r build/Release/SerialGamepad.app /Applications/SerialGamepad.app
 
 # Build GUI project
@@ -38,7 +40,8 @@ bin/foohid: src/serial.o src/foohid.o
 # Build distributable installer package
 distribute: build/Installer.pkg
 	@mkdir -p bin
-	cp -R build/Installer.pkg bin/SerialGamepad.pkg
+	@rm -rf bin/SerialGamepad.pkg
+	@cp -R build/Installer.pkg bin/SerialGamepad.pkg
 
 # Download foohid binary dependency
 build/foohid.pkg:
