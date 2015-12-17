@@ -2,9 +2,9 @@
 
 This project emulates a virtual Gamepad using input data from a serial port. This can be used to enable Flysky CT6A / CT6B compatible transmitters (Turbobrix, Exceed, Modelcraft) in games or simulators.
 
-**You need to install the virtual userspace IOKit HID driver *foohid*:**
+You need to install the virtual userspace IOKit HID driver [foohid](https://github.com/unbit/foohid).
 
-[GitHub page](https://github.com/unbit/foohid), [Binary releases](https://github.com/unbit/foohid/releases).
+Download the latest release **including foohid** [here on GitHub](https://github.com/xythobuz/SerialGamepad/releases).
 
 ## SerialGamepad GUI App
 
