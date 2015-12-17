@@ -76,7 +76,6 @@ int serialOpen(const char *port, unsigned int baud) {
     }
 
     // Input Modes
-    options.c_iflag |= IGNCR; // Ignore CR
 #ifdef XONXOFF
     options.c_iflag |= IXON; // XON-XOFF Flow Control
 #endif
@@ -88,9 +87,6 @@ int serialOpen(const char *port, unsigned int baud) {
     options.c_cflag |= CS8; // 8 data bits
     options.c_cflag |= CREAD; // Enable Receiver
     options.c_cflag |= CLOCAL; // Ignore modem status lines
-
-    // Local Modes
-    options.c_lflag |= IEXTEN; // Extended input character processing
 
     // Special characters
     options.c_cc[VMIN] = 0; // Always return...
