@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="2">
+    <title>SerialGamepad Emulator</title>
+    <readme file="readme.rtf"/>
+    <license file="license.txt"/>
+    <pkg-ref id="de.xythobuz.SerialGamepad"/>
+    <pkg-ref id="it.unbit.foohid"/>
+    <options require-scripts="false" rootVolumeOnly="true" hostArchitectures="i386,x86_64"/>
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="10.8"/>
+        </allowed-os-versions>
+    </volume-check>
+    <choices-outline>
+        <line choice="de.xythobuz.SerialGamepad"/>
+        <line choice="it.unbit.foohid"/>
+    </choices-outline>
+    <choice id="de.xythobuz.SerialGamepad" visible="true"
+            title="Install SerialGamepad"
+            description="Install SerialGamepad.app to /Applications">
+        <pkg-ref id="de.xythobuz.SerialGamepad"/>
+    </choice>
+    <choice id="it.unbit.foohid" visible="true"
+            title="Install virtual HID driver"
+            description="Install virtual HID Kernel driver foohid.kext to /Library/Extensions">
+        <pkg-ref id="it.unbit.foohid"/>
+    </choice>
+    <pkg-ref id="de.xythobuz.SerialGamepad" version="0" onConclusion="none">SerialGamepad.pkg</pkg-ref>
+    <pkg-ref id="it.unbit.foohid" version="1.0.0" onConclusion="none">foohid.pkg</pkg-ref>
+</installer-gui-script>
