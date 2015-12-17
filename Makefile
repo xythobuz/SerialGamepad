@@ -5,12 +5,15 @@
 # think this stuff is worth it, you can buy me a beer in return.   Thomas Buck
 # ----------------------------------------------------------------------------
 
+# C Compiler flags for command line apps
 CFLAGS ?= -Wall -pedantic -std=c11
 
-# Build everything
-all: bin/protocol bin/foohid build/Release/SerialGamepad.app build/Installer.pkg
+# Targets that don't name any created files
+.PHONY: all install distribute clean
+
+# Build all binaries
+all: bin/protocol bin/foohid build/Release/SerialGamepad.app
 	cp -R build/Release/SerialGamepad.app bin/SerialGamepad.app
-	cp -R build/Installer.pkg bin/SerialGamepad.pkg
 
 # Install locally
 install: bin/protocol bin/foohid build/Release/SerialGamepad.app
@@ -31,6 +34,11 @@ bin/protocol: src/serial.o src/protocol.o
 bin/foohid: src/serial.o src/foohid.o
 	@mkdir -p bin
 	$(CC) -o bin/foohid -framework IOKit src/serial.o src/foohid.o
+
+# Build distributable installer package
+distribute: build/Installer.pkg
+	@mkdir -p bin
+	cp -R build/Installer.pkg bin/SerialGamepad.pkg
 
 # Download foohid binary dependency
 build/foohid.pkg:
