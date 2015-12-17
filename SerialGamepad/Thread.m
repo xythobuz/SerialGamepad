@@ -140,7 +140,9 @@ enum ThreadState {
                     }
                     
                     if (channels[CHANNELS] != channels[TESTCHANNEL]) {
-                        NSLog(@"Wrong test channel value: %d != %d\n", channels[CHANNELS], channels[TESTCHANNEL]);
+                        // This channel contains the throttle value even if it has been disabled using the switches
+                        // on the transmitter. Therefore, there's not really a warning required here.
+                        //NSLog(@"Wrong test channel value: %d != %d\n", channels[CHANNELS], channels[TESTCHANNEL]);
                     }
                     
                     NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:CHANNELS];

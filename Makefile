@@ -13,13 +13,13 @@ all: bin/protocol bin/foohid build/Release/SerialGamepad.app build/Installer.pkg
 	cp -R build/Installer.pkg bin/SerialGamepad.pkg
 
 # Install locally
-install: all
-	cp bin/protocol ~/bin/protocol
-	cp bin/foohid ~/bin/foohid
+install: bin/protocol bin/foohid build/Release/SerialGamepad.app
+	cp bin/protocol /usr/local/bin/serial-protocol
+	cp bin/foohid /usr/local/bin/foohid
 	cp -r build/Release/SerialGamepad.app /Applications/SerialGamepad.app
 
 # Build GUI project
-build/Release/SerialGamepad.app:
+build/Release/SerialGamepad.app: SerialGamepad SerialGamepad.xcodeproj
 	xcodebuild
 
 # Build protocol binary
@@ -47,7 +47,7 @@ build/SerialGamepad.pkg: build/Release/SerialGamepad.app
 		build/SerialGamepad.pkg
 
 # Create installer bundling our App and fooHID
-build/Installer.pkg: build/SerialGamepad.pkg build/foohid.pkg Resources/Distribution.xml Resources/readme.rtf Resources/license.txt
+build/Installer.pkg: build/SerialGamepad.pkg build/foohid.pkg Resources
 	productbuild \
 		--distribution Resources/Distribution.xml \
 		--package-path build \
