@@ -4,15 +4,21 @@ This project emulates a virtual Gamepad using input data from a serial port. Thi
 
 Depending on the USB-Serial converter stick included with your Transmitter, you may need to install the [SiLabs CP210x driver](https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx).
 
-You need to install the virtual userspace IOKit HID driver [foohid](https://github.com/unbit/foohid).
+You also need to install the virtual userspace IOKit HID driver [foohid](https://github.com/unbit/foohid).
 
-Download the latest release **including foohid** [here on GitHub](https://github.com/xythobuz/SerialGamepad/releases).
+Download the latest release (**already including foohid**) [here on GitHub](https://github.com/xythobuz/SerialGamepad/releases).
+
+This software has been tested on OS 10.10 (Yosemite) and 10.11 (El Capitan).
 
 ## SerialGamepad GUI App
 
 This app can connect to a compatible transmitter over a serial port and then provide a virtual gamepad using fooHID.
 
 ![Screenshot](https://i.imgur.com/x0hnWq5.png)
+
+First, press `Connect` to establish a connection to your Transmitter. As soon as it is working the current stick positions will be visualized. Then, press `Create` to create a virtual HID Gamepad.
+
+As long as both have been initialized, you can use your Transmitter in your Simulator. The connection will be closed and the virtual device destroyed automatically when you close the App window.
 
 ## foohid command-line app
 
@@ -21,6 +27,14 @@ This small utility does the same thing as the SerialGamepad.app without a graphi
 ## protocol command-line app
 
 This small utility only reads the channel values from a serial port and pretty-prints them to a POSIX compatible terminal.
+
+# For Developers
+
+You don’t need to use the included Makefile if you want to change something in the GUI App. Just directly open the XCode project file.
+
+However, the makefile allows you not only to build the GUI app, but also a distributable Installer including the foohid dependency. For this, just run `make distribute`. The finished installer will be placed in `bin/SerialGamepad.pkg`.
+
+To build the command-line apps and the GUI apps, just run `make all`. You can also install all of them using `sudo make install`. The cli-binaries will go to `/usr/local/bin`, the App to `/Applications`.
 
 ## Other Resources
 
