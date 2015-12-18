@@ -2,6 +2,8 @@
 
 This project emulates a virtual Gamepad using input data from a serial port. This can be used to enable Flysky CT6A / CT6B compatible transmitters (Turbobrix, Exceed, Modelcraft) in games or simulators.
 
+Depending on the USB-Serial converter stick included with your Transmitter, you may need to install the [SiLabs CP210x driver](https://www.silabs.com/products/mcu/Pages/USBtoUARTBridgeVCPDrivers.aspx).
+
 You need to install the virtual userspace IOKit HID driver [foohid](https://github.com/unbit/foohid).
 
 Download the latest release **including foohid** [here on GitHub](https://github.com/xythobuz/SerialGamepad/releases).

@@ -159,6 +159,10 @@ enum ThreadState {
         }
     }
     
+    // Ensure the GUI is always reset after clicking Disconnect
+    NSArray *zero = [NSArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], [NSNumber numberWithInt:0], nil];
+    [mainWindow performSelectorOnMainThread:@selector(setChannels:) withObject:zero waitUntilDone:NO];
+    
     close(fd);
     NSLog(@"Connection closed...\n");
     fd = -1;
