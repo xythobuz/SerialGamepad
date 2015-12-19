@@ -16,25 +16,21 @@
 
 @synthesize portList, connectButton, createButton;
 @synthesize level1, level2, level3, level4, level5, level6;
-@synthesize serialThread, gamepadCreated;
+@synthesize serialThread;
 
 - (id)init {
     self = [super init];
     if (self != nil) {
         serialThread = nil;
-        gamepadCreated = NO;
         [self setDelegate:self];
     }
     return self;
 }
 
 - (BOOL)windowShouldClose:(id)sender {
-    if (gamepadCreated) {
-        [fooHID close];
-        gamepadCreated = NO;
-    }
-    
     if (serialThread != nil) {
+        [fooHID close];
+        
         // Stop thread and wait for it to finish
         [serialThread setRunning:NO];
         while ([serialThread isFinished] == NO) {
@@ -54,26 +50,18 @@
         if ([serialThread openPort] != 0) {
             serialThread = nil;
         } else {
-            [serialThread start];
-            [connectButton setTitle:@"Disconnect"];
+            if ([fooHID init] == 0) {
+                [serialThread start];
+                [connectButton setTitle:@"Disconnect"];
+            } else {
+                serialThread = nil;
+            }
         }
     } else {
         [serialThread setRunning:NO];
         serialThread = nil;
-        [connectButton setTitle:@"Connect"];
-    }
-}
-
-- (IBAction)createButtonPressed:(id)sender {
-    if (gamepadCreated) {
         [fooHID close];
-        gamepadCreated = NO;
-        [createButton setTitle:@"Create"];
-    } else {
-        if ([fooHID init] == 0) {
-            gamepadCreated = YES;
-            [createButton setTitle:@"Destroy"];
-        }
+        [connectButton setTitle:@"Connect"];
     }
 }
 
@@ -108,7 +96,7 @@
         [level5 setDoubleValue:[[data objectAtIndex:4] doubleValue]];
         [level6 setDoubleValue:[[data objectAtIndex:5] doubleValue]];
         
-        if (gamepadCreated) {
+        if (serialThread != nil) {
             [fooHID send:data];
         }
     }

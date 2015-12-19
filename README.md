@@ -16,10 +16,6 @@ This app can connect to a compatible transmitter over a serial port and then pro
 
 ![Screenshot](https://i.imgur.com/x0hnWq5.png)
 
-First, press `Connect` to establish a connection to your Transmitter. As soon as it is working the current stick positions will be visualized. Then, press `Create` to create a virtual HID Gamepad.
-
-As long as both have been initialized, you can use your Transmitter in your Simulator. The connection will be closed and the virtual device destroyed automatically when you close the App window.
-
 ## foohid command-line app
 
 This small utility does the same thing as the SerialGamepad.app without a graphical user interface.

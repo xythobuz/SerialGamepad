@@ -24,8 +24,6 @@
 
 @property (strong) Thread *serialThread;
 
-@property (assign) BOOL gamepadCreated;
-
 - (void)populatePortList;
 - (void)setChannels:(id)data;
 

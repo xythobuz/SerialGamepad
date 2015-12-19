@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
@@ -677,23 +677,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-m1-NwV">
-                        <rect key="frame" x="14" y="169" width="152" height="32"/>
+                        <rect key="frame" x="14" y="169" width="302" height="32"/>
                         <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="adp-gD-EEf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
                             <action selector="connectButtonPressed:" target="QvC-M9-y7g" id="3UW-Gk-OUp"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v8W-R7-l4G">
-                        <rect key="frame" x="164" y="169" width="152" height="32"/>
-                        <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EEe-0L-Dx7">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="createButtonPressed:" target="QvC-M9-y7g" id="Iff-L2-DFe"/>
                         </connections>
                     </button>
                     <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-fb-a0u">
@@ -736,7 +726,6 @@
             </view>
             <connections>
                 <outlet property="connectButton" destination="fCd-m1-NwV" id="3l3-JM-thL"/>
-                <outlet property="createButton" destination="v8W-R7-l4G" id="dGA-CN-AUM"/>
                 <outlet property="level1" destination="Bo5-fb-a0u" id="EHR-Gm-wah"/>
                 <outlet property="level2" destination="LlC-lV-IAQ" id="iMK-OU-OLi"/>
                 <outlet property="level3" destination="URz-Id-X9n" id="dgR-4v-LBR"/>
