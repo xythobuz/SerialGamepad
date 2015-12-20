@@ -668,16 +668,16 @@
             </items>
         </menu>
         <window title="SerialGamepad" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g" customClass="MainWindow">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="330" height="258"/>
+            <rect key="contentRect" x="335" y="390" width="242" height="258"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="330" height="258"/>
+                <rect key="frame" x="0.0" y="0.0" width="242" height="258"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-m1-NwV">
-                        <rect key="frame" x="14" y="169" width="302" height="32"/>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fCd-m1-NwV">
+                        <rect key="frame" x="14" y="169" width="214" height="32"/>
                         <buttonCell key="cell" type="push" title="Connect" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="adp-gD-EEf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -686,32 +686,32 @@
                             <action selector="connectButtonPressed:" target="QvC-M9-y7g" id="3UW-Gk-OUp"/>
                         </connections>
                     </button>
-                    <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-fb-a0u">
-                        <rect key="frame" x="20" y="140" width="290" height="16"/>
+                    <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bo5-fb-a0u">
+                        <rect key="frame" x="20" y="140" width="202" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="xcx-tB-hUl"/>
                     </levelIndicator>
-                    <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-lV-IAQ">
-                        <rect key="frame" x="20" y="116" width="290" height="16"/>
+                    <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-lV-IAQ">
+                        <rect key="frame" x="20" y="116" width="202" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="sb6-cl-NKs"/>
                     </levelIndicator>
-                    <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="URz-Id-X9n">
-                        <rect key="frame" x="20" y="92" width="290" height="16"/>
+                    <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="URz-Id-X9n">
+                        <rect key="frame" x="20" y="92" width="202" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="Sov-4g-u59"/>
                     </levelIndicator>
-                    <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txY-x4-Zyp">
-                        <rect key="frame" x="20" y="68" width="290" height="16"/>
+                    <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="txY-x4-Zyp">
+                        <rect key="frame" x="20" y="68" width="202" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="RKp-wa-VLB"/>
                     </levelIndicator>
-                    <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-eY-7y9">
-                        <rect key="frame" x="20" y="44" width="290" height="16"/>
+                    <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VyV-eY-7y9">
+                        <rect key="frame" x="20" y="44" width="202" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="CyL-Tq-w7d"/>
                     </levelIndicator>
-                    <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-tD-iWD">
-                        <rect key="frame" x="20" y="20" width="290" height="16"/>
+                    <levelIndicator verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vCW-tD-iWD">
+                        <rect key="frame" x="20" y="20" width="202" height="16"/>
                         <levelIndicatorCell key="cell" alignment="left" maxValue="1023" warningValue="2000" criticalValue="2000" levelIndicatorStyle="continuousCapacity" id="nfv-aV-cRB"/>
                     </levelIndicator>
-                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-p0-WO6">
-                        <rect key="frame" x="18" y="214" width="295" height="26"/>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mvV-p0-WO6">
+                        <rect key="frame" x="18" y="214" width="207" height="26"/>
                         <popUpButtonCell key="cell" type="push" title="Serial Port" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" enabled="NO" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="W0M-vU-Ybd" id="p4h-ja-UZg">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -723,6 +723,33 @@
                         </popUpButtonCell>
                     </popUpButton>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="URz-Id-X9n" firstAttribute="trailing" secondItem="txY-x4-Zyp" secondAttribute="trailing" id="07f-qh-Scb"/>
+                    <constraint firstAttribute="trailing" secondItem="mvV-p0-WO6" secondAttribute="trailing" constant="20" symbolic="YES" id="0Z8-0x-w3K"/>
+                    <constraint firstItem="txY-x4-Zyp" firstAttribute="leading" secondItem="URz-Id-X9n" secondAttribute="leading" id="Ifx-OK-nzf"/>
+                    <constraint firstItem="mvV-p0-WO6" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="N0d-Aw-e8G"/>
+                    <constraint firstItem="txY-x4-Zyp" firstAttribute="top" secondItem="URz-Id-X9n" secondAttribute="bottom" constant="8" symbolic="YES" id="N39-6b-2NX"/>
+                    <constraint firstItem="LlC-lV-IAQ" firstAttribute="leading" secondItem="Bo5-fb-a0u" secondAttribute="leading" id="NDG-Sz-Kql"/>
+                    <constraint firstItem="VyV-eY-7y9" firstAttribute="top" secondItem="txY-x4-Zyp" secondAttribute="bottom" constant="8" symbolic="YES" id="PAc-J3-hYW"/>
+                    <constraint firstAttribute="bottom" secondItem="vCW-tD-iWD" secondAttribute="bottom" constant="20" id="W0Z-Ta-1Ta"/>
+                    <constraint firstItem="URz-Id-X9n" firstAttribute="trailing" secondItem="LlC-lV-IAQ" secondAttribute="trailing" id="X9s-qo-KFt"/>
+                    <constraint firstItem="vCW-tD-iWD" firstAttribute="top" secondItem="VyV-eY-7y9" secondAttribute="bottom" constant="8" symbolic="YES" id="XQf-DW-DiW"/>
+                    <constraint firstItem="VyV-eY-7y9" firstAttribute="trailing" secondItem="vCW-tD-iWD" secondAttribute="trailing" id="a7p-z4-EV6"/>
+                    <constraint firstItem="mvV-p0-WO6" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="b0b-Gh-4oj"/>
+                    <constraint firstItem="fCd-m1-NwV" firstAttribute="top" secondItem="mvV-p0-WO6" secondAttribute="bottom" constant="20" symbolic="YES" id="bDw-ED-yYf"/>
+                    <constraint firstItem="VyV-eY-7y9" firstAttribute="leading" secondItem="vCW-tD-iWD" secondAttribute="leading" id="bQC-oV-s9H"/>
+                    <constraint firstItem="LlC-lV-IAQ" firstAttribute="trailing" secondItem="Bo5-fb-a0u" secondAttribute="trailing" id="blp-4C-YDS"/>
+                    <constraint firstItem="LlC-lV-IAQ" firstAttribute="leading" secondItem="URz-Id-X9n" secondAttribute="leading" id="bto-Td-nLV"/>
+                    <constraint firstItem="fCd-m1-NwV" firstAttribute="trailing" secondItem="Bo5-fb-a0u" secondAttribute="trailing" id="dDd-Lu-0Uw"/>
+                    <constraint firstItem="Bo5-fb-a0u" firstAttribute="leading" secondItem="fCd-m1-NwV" secondAttribute="leading" id="dvb-eu-kGQ"/>
+                    <constraint firstItem="fCd-m1-NwV" firstAttribute="leading" secondItem="mvV-p0-WO6" secondAttribute="leading" id="fTx-d3-64h"/>
+                    <constraint firstItem="URz-Id-X9n" firstAttribute="top" secondItem="LlC-lV-IAQ" secondAttribute="bottom" constant="8" symbolic="YES" id="flg-Yj-gL4"/>
+                    <constraint firstItem="LlC-lV-IAQ" firstAttribute="top" secondItem="Bo5-fb-a0u" secondAttribute="bottom" constant="8" symbolic="YES" id="gBD-9W-mSY"/>
+                    <constraint firstItem="VyV-eY-7y9" firstAttribute="trailing" secondItem="txY-x4-Zyp" secondAttribute="trailing" id="pZ5-Rl-nd8"/>
+                    <constraint firstItem="Bo5-fb-a0u" firstAttribute="top" secondItem="fCd-m1-NwV" secondAttribute="bottom" constant="20" symbolic="YES" id="qe4-JT-iKz"/>
+                    <constraint firstItem="fCd-m1-NwV" firstAttribute="trailing" secondItem="mvV-p0-WO6" secondAttribute="trailing" id="qk4-kr-Hsn"/>
+                    <constraint firstItem="VyV-eY-7y9" firstAttribute="leading" secondItem="txY-x4-Zyp" secondAttribute="leading" id="ra0-kd-Oll"/>
+                </constraints>
             </view>
             <connections>
                 <outlet property="connectButton" destination="fCd-m1-NwV" id="3l3-JM-thL"/>
@@ -734,7 +761,7 @@
                 <outlet property="level6" destination="vCW-tD-iWD" id="Il2-Xb-sB9"/>
                 <outlet property="portList" destination="mvV-p0-WO6" id="TqL-rb-GiB"/>
             </connections>
-            <point key="canvasLocation" x="598" y="439"/>
+            <point key="canvasLocation" x="554" y="439"/>
         </window>
     </objects>
 </document>
