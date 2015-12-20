@@ -29,13 +29,13 @@
 
 - (BOOL)windowShouldClose:(id)sender {
     if (serialThread != nil) {
-        [fooHID close];
-        
         // Stop thread and wait for it to finish
         [serialThread setRunning:NO];
         while ([serialThread isFinished] == NO) {
             usleep(1000);
         }
+        serialThread = nil;
+        [fooHID close];
     }
     
     return YES;
