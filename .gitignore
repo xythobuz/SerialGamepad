@@ -2,3 +2,8 @@
 *.o
 bin
 build
+
+.VolumeIcon.icns
+.fseventsd
+Icon
+
