@@ -14,7 +14,7 @@ You can verify that this is working by running the following command in a termin
 
 `ls /dev/ | grep 'tty\.'`
 
-You should see something that looks like `tty.USBtoUARTBridge`. If you don't see something like that displayed, you either have an issue with the driver for your serial adapter (try reinstalling it) or you have a different serial adapter and you'll need to find the drivers for that. To see what adapter is registring with OS X, Apple => About This Mac => System Report => USB.
+You should see something that looks like `tty.SLAB_USBtoUART`. If you don't see something like that displayed, you either have an issue with the driver for your serial adapter (try reinstalling it) or you have a different serial adapter and you'll need to find the drivers for that. To see what adapter is registring with OS X, Apple => About This Mac => System Report => USB.
 
 ### Package File
 Next you'll need to download and install the latest release of the Gamepad Driver (**includes foohid**) [here on GitHub](https://github.com/xythobuz/SerialGamepad/releases). 
