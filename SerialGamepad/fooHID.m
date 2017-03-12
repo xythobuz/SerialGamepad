@@ -20,6 +20,7 @@
 #define FOOHID_SEND 2
 #define FOOHID_LIST 3
 #define VIRTUAL_DEVICE_NAME "Virtual Serial Transmitter"
+#define VIRTUAL_DEVICE_SN "SN  123456"
 
 int foohidInit();
 void foohidClose();
@@ -60,6 +61,7 @@ struct gamepad_report_t {
 
 static io_connect_t connector;
 static uint64_t deviceName = 0, deviceNameLength;
+static uint64_t deviceSN = 0, deviceSNLength;
 static struct gamepad_report_t gamepad;
 
 /*
@@ -122,18 +124,28 @@ int foohidInit() {
         deviceName = (uint64_t)strdup(VIRTUAL_DEVICE_NAME);
         deviceNameLength = strlen((char *)deviceName);
     }
+
+    if (deviceSN == 0) {
+        deviceSN = (uint64_t)strdup(VIRTUAL_DEVICE_SN);
+        deviceSNLength = strlen((char *)deviceSN);
+    }
     
-    uint64_t input[4];
+    uint64_t input[8];
     input[0] = deviceName;
     input[1] = deviceNameLength;
+
     input[2] = (uint64_t)report_descriptor;
     input[3] = sizeof(report_descriptor);
-    
-    uint32_t output_count = 1;
-    uint64_t output = 0;
-    ret = IOConnectCallScalarMethod(connector, FOOHID_CREATE, input, 4, &output, &output_count);
+
+    input[4] = deviceSN;
+    input[5] = deviceSNLength;
+
+    input[6] = (uint64_t)2; // vendor ID
+    input[7] = (uint64_t)3; // device ID
+
+    ret = IOConnectCallScalarMethod(connector, FOOHID_CREATE, input, 8, NULL, 0);
     if (ret != KERN_SUCCESS) {
-        NSLog(@"Unable to create virtual HID device\n");
+        printf("Unable to create virtual HID device\n");
         return 1;
     }
     
@@ -147,9 +159,7 @@ void foohidClose() {
     input[0] = deviceName;
     input[1] = deviceNameLength;
     
-    uint32_t output_count = 1;
-    uint64_t output = 0;
-    kern_return_t ret = IOConnectCallScalarMethod(connector, FOOHID_DESTROY, input, 2, &output, &output_count);
+    kern_return_t ret = IOConnectCallScalarMethod(connector, FOOHID_DESTROY, input, 2, NULL, 0);
     if (ret != KERN_SUCCESS) {
         NSLog(@"Unable to destroy virtual HID device\n");
     }
@@ -185,9 +195,7 @@ void foohidSend(uint16_t *data) {
     input[2] = (uint64_t)&gamepad;
     input[3] = sizeof(struct gamepad_report_t);
     
-    uint32_t output_count = 1;
-    uint64_t output = 0;
-    kern_return_t ret = IOConnectCallScalarMethod(connector, FOOHID_SEND, input, 4, &output, &output_count);
+    kern_return_t ret = IOConnectCallScalarMethod(connector, FOOHID_SEND, input, 4, NULL, 0);
     if (ret != KERN_SUCCESS) {
         NSLog(@"Unable to send packet to virtual HID device\n");
     }

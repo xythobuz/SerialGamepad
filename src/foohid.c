@@ -34,6 +34,7 @@
 #define FOOHID_SEND 2
 #define FOOHID_LIST 3
 #define VIRTUAL_DEVICE_NAME "Virtual Serial Transmitter"
+#define VIRTUAL_DEVICE_SERIAL "SN 123456"
 
 struct gamepad_report_t {
     int16_t leftX;
@@ -48,7 +49,8 @@ static int running = 1;
 static io_iterator_t iterator;
 static io_service_t service;
 static io_connect_t connect;
-static uint64_t input[4];
+#define input_count 8
+static uint64_t input[input_count];
 static struct gamepad_report_t gamepad;
 
 /*
@@ -83,7 +85,7 @@ static int foohidInit() {
 
     // get a reference to the IOService
     kern_return_t ret = IOServiceGetMatchingServices(kIOMasterPortDefault,
-                            IOServiceMatching("it_unbit_foohid"), &iterator);
+                            IOServiceMatching(FOOHID_NAME), &iterator);
     if (ret != KERN_SUCCESS) {
         printf("Unable to access foohid IOService\n");
         return 1;
@@ -111,9 +113,13 @@ static int foohidInit() {
     input[2] = (uint64_t)report_descriptor;
     input[3] = sizeof(report_descriptor);
 
-    uint32_t output_count = 1;
-    uint64_t output = 0;
-    ret = IOConnectCallScalarMethod(connect, FOOHID_CREATE, input, 4, &output, &output_count);
+    input[4] = (uint64_t)strdup(VIRTUAL_DEVICE_SERIAL);
+    input[5] = strlen((char*)input[4]);
+
+    input[6] = (uint64_t)2; // vendor ID
+    input[7] = (uint64_t)3; // device ID
+
+    ret = IOConnectCallScalarMethod(connect, FOOHID_CREATE, input, input_count, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to create virtual HID device\n");
         return 1;
@@ -125,9 +131,7 @@ static int foohidInit() {
 static void foohidClose() {
     printf("Destroying virtual HID device\n");
 
-    uint32_t output_count = 1;
-    uint64_t output = 0;
-    kern_return_t ret = IOConnectCallScalarMethod(connect, FOOHID_DESTROY, input, 2, &output, &output_count);
+    kern_return_t ret = IOConnectCallScalarMethod(connect, FOOHID_DESTROY, input, 2, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to destroy virtual HID device\n");
     }
@@ -160,9 +164,7 @@ static void foohidSend(uint16_t *data) {
     input[2] = (uint64_t)&gamepad;
     input[3] = sizeof(struct gamepad_report_t);
 
-    uint32_t output_count = 1;
-    uint64_t output = 0;
-    kern_return_t ret = IOConnectCallScalarMethod(connect, FOOHID_SEND, input, 4, &output, &output_count);
+    kern_return_t ret = IOConnectCallScalarMethod(connect, FOOHID_SEND, input, 4, NULL, 0);
     if (ret != KERN_SUCCESS) {
         printf("Unable to send packet to virtual HID device\n");
     }
@@ -195,6 +197,8 @@ int main(int argc, char* argv[]) {
         perror("Couldn't register signal handler");
         return 1;
     }
+
+    printf("Entering main-loop...\n");
 
     while (running != 0) {
         if (serialHasChar(fd)) {
