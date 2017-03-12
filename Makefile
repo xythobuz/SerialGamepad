@@ -46,8 +46,11 @@ distribute: build/Installer.pkg
 # Download foohid binary dependency
 build/foohid.pkg:
 	@mkdir -p build
-	curl -o build/foohid.pkg \
-		-L https://github.com/unbit/foohid/releases/download/0.1/foohid.pkg
+	curl -o build/foohid.dmg \
+		-L https://github.com/unbit/foohid/releases/download/0.2.1/foohid-0.2.1.dmg
+	hdiutil attach build/foohid.dmg
+	cp /Volumes/foohid/foohid-0.2.1.pkg build/foohid.pkg
+	umount /Volumes/foohid
 
 # Create installer pkg for our App
 build/SerialGamepad.pkg: build/Release/SerialGamepad.app
